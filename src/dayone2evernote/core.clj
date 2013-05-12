@@ -1,25 +1,41 @@
 (ns dayone2evernote.core
   (:require [clojure.data.xml :as xml]
-            [clojure.tools.cli :only [cli]])
+            [clojure.string :as string]
+            [markdown.core :as md])
   (:gen-class))
 
 (use 'dayone2evernote.plist)
 (use 'dayone2evernote.evernote-xml)
 
-(def entry (parse-plist (java.io.File. "test/sample.plist")))
+(defn input-files
+  [dir]
+  (filter #(.endsWith (.getName %) ".doentry") (file-seq (clojure.java.io/file dir))))
+  
+(defn entry
+  [file]
+  (parse-plist file))
 
-(defn dayone-entries [] [entry])
+(defn dayone-entries
+  [dir]
+  (let [files (take 10 (input-files dir))]
+    (println files)
+    (map entry files)))
 
-(defn first-line
-  "Returns the first line of text."
+(defn- title
+  "Derives a title from the content text."
   [text]
-  (first (.split #"\n" text 2)))
+  (first (.split #"\." text)))
+
+(defn- html-content
+  "Parse content as markdown and return html"
+  [content]
+  (md/md-to-html-string content))
 
 (defn dayone-entry-to-evernote
   "Return a data map for entry"
   [entry]
-  {:title   (first-line (entry "Entry Text"))
-   :content (entry "Entry Text")
+  {:title   (title (entry "Entry Text"))
+   :content (html-content (entry "Entry Text"))
    :created (entry "Creation Date")
    :tags    (entry "Tags")})
 
@@ -29,10 +45,14 @@
   ;; work around dangerous default behaviour in Clojure
   (alter-var-root #'*read-eval* (constantly false))
 
-  ;; (xml/emit (evernote-doc [(dayone-entry-to-evernote entry)]) *out*)
-
-  (with-open [out-file (java.io.FileWriter. "/tmp/dayone-export.xml")]
-    (xml/emit (evernote-doc (map dayone-entry-to-evernote (dayone-entries)))
-          out-file))
-)
-
+  (if (< (count args) 2) (binding [*out* *err*]
+                           (println "Usage: $0 <input-dir> <output-file>") 
+                           (System/exit 1)))
+ 
+  (let [[in out] args]
+    (println in)
+    (println out)
+  
+  (with-open [out-file (java.io.FileWriter. out)]
+    (xml/emit (evernote-doc (map dayone-entry-to-evernote (dayone-entries in)))
+          out-file))))

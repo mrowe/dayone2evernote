@@ -7,5 +7,5 @@
                  [org.clojure/data.xml "0.0.7"]
                  [joda-time "1.6"]
                  [commons-codec/commons-codec "1.4"]
-                 [org.clojure/tools.cli "0.2.2"]]
+                 [markdown-clj "0.9.21"]]
   :main dayone2evernote.core)
