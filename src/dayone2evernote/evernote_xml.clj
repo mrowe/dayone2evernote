@@ -12,11 +12,15 @@
   [tag]
   (xml/element :tag {} tag))
 
+(defn- content-document
+  [text]
+  (xml/element :en-note {} text))
+  
 (defn- entry-element
   [entry]
   (xml/element :note {}
                (xml/element :title {} (:title entry))
-               (xml/element :content {} (:content entry))
+               (xml/element :content {} (xml/cdata (xml/emit-str (content-document (:content entry)))))
                (xml/element :created {} (format-date (:created entry)))
                (map tag-element (:tags entry))))
 
