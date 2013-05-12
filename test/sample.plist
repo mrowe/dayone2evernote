@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Creation Date</key>
+	<date>2013-05-21T15:16:23Z</date>
+	<key>Entry Text</key>
+	<string>A test.
+
+</string>
+	<key>Location</key>
+	<dict>
+		<key>Administrative Area</key>
+		<string>Victoria</string>
+		<key>Country</key>
+		<string>Australia</string>
+		<key>Latitude</key>
+		<real>-37.812379700000001</real>
+		<key>Locality</key>
+		<string>Kew</string>
+		<key>Longitude</key>
+		<real>145.01732749999999</real>
+		<key>Place Name</key>
+		<string>15–33A Barkers Road</string>
+	</dict>
+	<key>Starred</key>
+	<true/>
+	<key>Tags</key>
+	<array>
+		<string>Test</string>
+		<string>Imported</string>
+	</array>
+	<key>Time Zone</key>
+	<string>Australia/Melbourne</string>
+	<key>UUID</key>
+	<string>C679243FEFAC4C309507F96A963DE6BF</string>
+	<key>Weather</key>
+	<dict>
+		<key>Celsius</key>
+		<string>25</string>
+		<key>Description</key>
+		<string>Sunny</string>
+		<key>Fahrenheit</key>
+		<string>77</string>
+		<key>IconName</key>
+		<string>sunny.png</string>
+	</dict>
+</dict>
+</plist>
