@@ -4,7 +4,7 @@ Read Day One entry files and write an Evernote export file.
 
 ## Installation
 
-Download from https://github.com/mrowe/dayone2evernote.
+Download from https://github.com/mrowe/dayone2evernote and run `lein jar`.
 
 ## Usage
 
