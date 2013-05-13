@@ -18,7 +18,6 @@
 (defn dayone-entries
   [dir]
   (let [files (take 10 (input-files dir))]
-    (println files)
     (map entry files)))
 
 (defn- title
@@ -50,9 +49,6 @@
                            (System/exit 1)))
  
   (let [[in out] args]
-    (println in)
-    (println out)
-  
-  (with-open [out-file (java.io.FileWriter. out)]
-    (xml/emit (evernote-doc (map dayone-entry-to-evernote (dayone-entries in)))
-          out-file))))
+    (with-open [out-file (java.io.FileWriter. out)]
+      (xml/emit (evernote-doc (map dayone-entry-to-evernote (dayone-entries in))) out-file))
+    (str "Wrote Evernote export file to " out)))
