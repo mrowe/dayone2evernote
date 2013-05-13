@@ -1,3 +1,5 @@
+[![Build Status](https://buildhive.cloudbees.com/job/mrowe/job/dayone2evernote/badge/icon)](https://buildhive.cloudbees.com/job/mrowe/job/dayone2evernote/)
+
 # dayone2evernote
 
 Read Day One entry files and write an Evernote export file.
