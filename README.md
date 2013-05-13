@@ -38,4 +38,6 @@ the Evernote export-format file:
 
 Copyright © 2013 Michael Rowe
 
+Includes code Copyright © 2011–2012 Benjamin D. Esham ([www.bdesham.info](www.bdesham.info)).
+
 Distributed under the Eclipse Public License, the same as Clojure.
