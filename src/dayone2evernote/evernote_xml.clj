@@ -1,9 +1,12 @@
 (ns dayone2evernote.evernote-xml
   (:require [clojure.data.xml :as xml])
   (:import java.text.SimpleDateFormat
+           java.util.TimeZone
            java.util.Date))
 
-(def date-formatter (SimpleDateFormat. "yyyyMMdd'T'HHmmssZ"))
+(def date-formatter (SimpleDateFormat. "yyyyMMdd'T'HHmmss'Z'"))
+(.setTimeZone date-formatter (TimeZone/getTimeZone "UTC"))
+
 (defn- format-date [date] (.format date-formatter date))
 
 (defn- now [] (format-date (Date.)))
