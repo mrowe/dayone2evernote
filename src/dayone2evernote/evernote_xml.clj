@@ -22,6 +22,7 @@
                (xml/element :title {} (:title entry))
                (xml/element :content {} (xml/cdata (xml/emit-str (content-document (:content entry)))))
                (xml/element :created {} (format-date (:created entry)))
+               (xml/element :updated {} (format-date (:updated entry)))
                (map tag-element (:tags entry))))
 
 (defn evernote-doc

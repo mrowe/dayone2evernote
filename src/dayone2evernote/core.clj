@@ -36,6 +36,7 @@
   {:title   (title (entry "Entry Text"))
    :content (html-content (entry "Entry Text"))
    :created (entry "Creation Date")
+   :updated (entry "Creation Date")
    :tags    (entry "Tags")})
 
 (defn -main
