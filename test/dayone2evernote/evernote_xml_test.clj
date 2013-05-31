@@ -28,8 +28,8 @@
     (testing "Contains the content as CDATA"
       (is (re-find #"<content><!\[CDATA\[" enex)))
 
-    ;; (testing "Contains HTML tags in the content"
-    ;;   (is (re-find #"<en-note><p>Some content.</p>" enex)))
+    (testing "Contains HTML tags in the content"
+      (is (re-find #"<en-note><p>Some content.</p>" enex)))
 
     (testing "Contains the created date in the correct format"
       (is (re-find #"<created>\d{8}T\d{6}(\+\d{4}|Z)</created>" enex)))))
