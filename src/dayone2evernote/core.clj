@@ -20,10 +20,32 @@
   (let [files (take 10 (input-files dir))]
     (map entry files)))
 
+(defn- first-split
+  [s regexp]
+  (first (.split regexp s)))
+
+(defn- first-line
+  [s]
+  (first-split s #"\n"))
+
+(defn- first-sentence
+  [s]
+  (first-split s #"\."))
+
+(defn- left
+  "Returns the left-most n characters of string s"
+  [s n]
+  (let [len (.length s)
+        first-n (min n len)]
+    (.substring s 0 first-n)))
+
 (defn- title
   "Derives a title from the content text."
   [text]
-  (first (.split #"\." text)))
+  (left (-> text
+            first-line
+            first-sentence)
+        80))
 
 (defn- html-content
   "Parse content as markdown and return html"
