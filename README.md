@@ -20,17 +20,17 @@ the Evernote export-format file:
 
 ## Bugs
 
- * Evernote does not seem to read "created" dates
-
- * Embedded content doc is incorrectly escaping element tags
-
- * Note title is derived by pulling the first sentence from the Day
-   One note content. This is pretty naive, and at the very least
-   should limit the length of the title.
-
- * NOTE: currently only reads the first 10 Day One entries, for testing
+ * Note title is derived by pulling the first sentence from the first
+   line of the Day One note content, truncating to 80 chars if
+   necessary. This is pretty naive.
 
 ## History
+
+### 0.2.0
+
+ * Fix escaping and date bugs.
+ 
+ * Import *all* entries.
 
 ### 0.1.0
 

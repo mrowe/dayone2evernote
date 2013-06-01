@@ -1,4 +1,4 @@
-(defproject dayone2evernote "0.1.0"
+(defproject dayone2evernote "0.2.0"
   :description "Read Day One entry files and write an Evernote export file."
   :url "https://github.com/mrowe/dayone2evernote"
   :license {:name "Eclipse Public License"
