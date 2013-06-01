@@ -17,7 +17,7 @@
 
 (defn dayone-entries
   [dir]
-  (let [files (take 10 (input-files dir))]
+  (let [files (input-files dir)]
     (map entry files)))
 
 (defn- first-split
