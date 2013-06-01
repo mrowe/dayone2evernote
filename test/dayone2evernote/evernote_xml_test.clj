@@ -9,7 +9,8 @@
   (let [now (Date.)
         entry {:title "A Title"
                :content "<p>Some content.</p>\n<p>More content.</p>"
-               :created now}
+               :created now
+               :updated now}
         enex (xml/emit-str (evernote-doc [entry]))]
 
     ;; this is all pretty embarassing really
