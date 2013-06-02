@@ -24,6 +24,9 @@ the Evernote export-format file:
    line of the Day One note content, truncating to 80 chars if
    necessary. This is pretty naive.
 
+ * Doesn't handle edge cases like empty Day One entries, or non-encoded entities
+   very well.
+
 ## History
 
 ### 0.2.0
