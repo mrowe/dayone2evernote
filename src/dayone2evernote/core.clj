@@ -42,10 +42,10 @@
 (defn- title
   "Derives a title from the content text."
   [text]
-  (left (-> text
-            first-line
-            first-sentence)
-        80))
+  (-> text
+      first-line
+      first-sentence
+      (left 80)))
 
 (defn- html-content
   "Parse content as markdown and return html"
