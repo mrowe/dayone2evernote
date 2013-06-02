@@ -17,7 +17,9 @@
 
 (defn- content-document
   [text]
-  (xml/element :en-note {} (xml/parse-str text)))
+  (xml/element :en-note {} (if (nil? text)
+                             ""
+                             (xml/parse-str text))))
   
 (defn- entry-element
   [entry]
