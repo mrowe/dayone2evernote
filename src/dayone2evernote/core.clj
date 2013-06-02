@@ -22,7 +22,9 @@
 
 (defn- first-split
   [s regexp]
-  (first (.split regexp s)))
+  (if (nil? s)
+    ""
+    (first (.split regexp s))))
 
 (defn- first-line
   [s]
