@@ -55,6 +55,7 @@
 (defn dayone-entry-to-evernote
   "Return a data map for entry"
   [entry]
+  (println (str "Processing entry: " (title (entry "Entry Text"))))
   {:title   (title (entry "Entry Text"))
    :content (html-content (entry "Entry Text"))
    :created (entry "Creation Date")
