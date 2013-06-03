@@ -33,8 +33,7 @@
 (defn evernote-doc
   ""
   [entries]
-  (let [entry (first entries)]
   (xml/element :en-export {:export-date (now)
                            :application "dayone2evernote"
                            :version     "1.0"}
-               (map entry-element entries))))
+               (map entry-element entries)))
