@@ -15,17 +15,30 @@
   [tag]
   (xml/element :tag {} tag))
 
-(defn- content-document
-  [text]
-  (xml/element :en-note {} (if (nil? text)
-                             ""
-                             (xml/parse-str text))))
-  
+(defn- xml?
+  [s]
+  (try
+    (xml/emit-str (xml/parse-str s))
+    (catch Throwable e
+      false)))
+
+(defn- wrap
+  "Wrap string s in xml-ish tag"
+  [tag s]
+  (str "<" tag ">" s "</" tag ">"))
+
+(defn- content-string
+  [entry]
+  (wrap "en-note"
+        (if (xml? (wrap "body" (:content entry)))
+          (:content entry)
+          (wrap "pre" (:content-raw entry)))))
+
 (defn- entry-element
   [entry]
   (xml/element :note {}
                (xml/element :title {} (:title entry))
-               (xml/element :content {} (xml/cdata (xml/emit-str (content-document (:content entry)))))
+               (xml/element :content {} (xml/cdata (content-string entry)))
                (xml/element :created {} (format-date (:created entry)))
                (xml/element :updated {} (format-date (:updated entry)))
                (map tag-element (:tags entry))))
