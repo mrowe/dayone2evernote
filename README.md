@@ -34,7 +34,7 @@ the Evernote export-format file:
 
  * Fix escaping bugs some more.
 
- * Put content that can't be parsed as XML into a <pre> block.
+ * Put content that can't be parsed as XML into a `pre` block.
 
  * Handle empty content better.
 
