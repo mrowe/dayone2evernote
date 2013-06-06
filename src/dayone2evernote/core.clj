@@ -60,6 +60,7 @@
   (println (str "Processing entry: " (title (entry "Entry Text"))))
   {:title   (title (entry "Entry Text"))
    :content (html-content (entry "Entry Text"))
+   :content-raw (entry "Entry Text")
    :created (entry "Creation Date")
    :updated (entry "Creation Date")
    :tags    (entry "Tags")})
