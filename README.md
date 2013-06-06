@@ -20,6 +20,8 @@ the Evernote export-format file:
 
 ## Bugs
 
+ * Imported notes *cannot be synced* because they are missing a "grammar"
+
  * Note title is derived by pulling the first sentence from the first
    line of the Day One note content, truncating to 80 chars if
    necessary. This is pretty naive.
