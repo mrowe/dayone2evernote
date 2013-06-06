@@ -11,6 +11,18 @@
 
 (defn- now [] (format-date (Date.)))
 
+;; lifted from hiccup
+(defn- escape
+  "Change special characters into XML character entities."
+  [s]
+  (if (nil? s)
+    ""
+    (.. ^String s
+        (replace "&"  "&amp;")
+        (replace "<"  "&lt;")
+        (replace ">"  "&gt;")
+        (replace "\"" "&quot;"))))
+
 (defn- tag-element
   [tag]
   (xml/element :tag {} tag))
@@ -32,7 +44,7 @@
   (wrap "en-note"
         (if (xml? (wrap "body" (:content entry)))
           (:content entry)
-          (wrap "pre" (:content-raw entry)))))
+          (wrap "pre" (escape (:content-raw entry))))))
 
 (defn- entry-element
   [entry]

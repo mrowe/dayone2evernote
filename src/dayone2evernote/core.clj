@@ -49,22 +49,10 @@
       first-sentence
       (left 80)))
 
-;; lifted from hiccup
-(defn- escape
-  "Change special characters into XML character entities."
-  [s]
-  (if (nil? s)
-    ""
-    (.. ^String s
-        (replace "&"  "&amp;")
-        (replace "<"  "&lt;")
-        (replace ">"  "&gt;")
-        (replace "\"" "&quot;"))))
-
 (defn- html-content
   "Parse content as markdown and return html"
   [content]
-  (md/md-to-html-string (escape content)))
+  (md/md-to-html-string content))
 
 (defn dayone-entry-to-evernote
   "Return a data map for entry"
