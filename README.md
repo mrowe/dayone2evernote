@@ -24,10 +24,17 @@ the Evernote export-format file:
    line of the Day One note content, truncating to 80 chars if
    necessary. This is pretty naive.
 
- * Doesn't handle edge cases like empty Day One entries, or non-encoded entities
-   very well.
+ * Tags don't seem to get imported by Evernote. I don't know why not.
 
 ## History
+
+### 0.2.1
+
+ * Fix escaping bugs some more.
+
+ * Put content that can't be parsed as XML into a <pre> block.
+
+ * Handle empty content better.
 
 ### 0.2.0
 
