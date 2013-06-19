@@ -15,7 +15,7 @@ containing Day One entry files (e.g. ~/Dropbox/Apps/Day
 One/Journal.dayone/entries) and the name of the file in which to store
 the Evernote export-format file:
 
-    $ java -jar dayone2evernote-0.1.0-standalone.jar ~/Dropbox/Apps/Day\ One/Journal.dayone/entries/ dayone-notes.enex
+    $ java -jar dayone2evernote-0.2.1-standalone.jar ~/Dropbox/Apps/Day\ One/Journal.dayone/entries/ dayone-notes.enex
 
 
 ## Bugs
